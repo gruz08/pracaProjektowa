@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= name %></title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <h2>Dodaj nowego użytkownika</h2>
+
+        <% if(errors && errors.length > 0) { %>
+            <div class="errors">
+                <ul>
+                    <% errors.forEach(error => { %>
+                        <li><%= error %></li>
+                    <% }); %>
+                </ul>
+            </div>
+        <% } %>
+
+        <form action="/users" method="POST">
+                <label for="name">Imię:</label>
+                <input type="text" id="name" name="name" value="<%= values.name %>" ><br>
+                <label for="age">Wiek:</label>
+                <input type="number" id="age" name="age" value="<%= values.age %>" ><br>
+                <label for="password">Hasło:</label>
+                <input type="password" id="password" name="password"> <%= values.password %><br>
+            <button type="submit">Dodaj Użytkownika</button>
+        </form>
+    </main>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>
