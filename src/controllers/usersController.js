@@ -39,7 +39,7 @@ async function create(req, res) {
 
     const user = await userService.createUser({ name, password, age });
 
-    return res.redirect(`/users/${user.slug}`); // JEDYNE PRAWIDŁOWE !!!
+    return res.redirect(`/users/${user.slug}`); 
 }
 
 
